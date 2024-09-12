@@ -1,5 +1,11 @@
+import SignUpContainer from "../components/SignUp/SignUpContainer";
+
 const Signup = () => {
-  return <div>This is signup from ferdous</div>;
+  return (
+    <main>
+      <SignUpContainer />
+    </main>
+  );
 };
 
 export default Signup;
