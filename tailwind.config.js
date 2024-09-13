@@ -2,7 +2,12 @@ import daisyui from "daisyui";
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "node_modules/preline/dist/*.js",
+    "node_modules/flowbite/**/*.{js,jsx,ts,tsx}",
+  ],
   theme: {
     extend: {
       colors: {
@@ -30,7 +35,7 @@ export default {
       },
     },
   },
-  plugins: [daisyui],
+  plugins: [daisyui,  ],
   daisyui: {
     themes: ["light"],
   },
