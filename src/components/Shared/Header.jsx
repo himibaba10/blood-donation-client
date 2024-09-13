@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <div className="relative flex justify-between p-4 shadow-lg ">
       <h3 className="text-xl lg:text-3xl">
-        <span className="bg-slate-300 rounded-lg px-2 py-1">SaveABeat</span>
+        <span className="bg-slate-300 rounded-lg px-2 py-1 ">SaveABeat</span>
       </h3>
       <div>
         {/* Hamburger Icon for mobile */}
@@ -44,7 +44,11 @@ const Header = () => {
               to={`/${item.toLowerCase()}`}
               key={index}
               className={({ isActive }) =>
-                `hover:text-[#E3363C] ${isActive ? "text-[#E3363C]" : ""} `
+                `hover:text-red-600 font-semibold ${
+                  isActive
+                    ? "text-red-600 lg:underline underline-offset-8 decoration-2 decoration-red-600"
+                    : ""
+                } `
               }
             >
               {item}
