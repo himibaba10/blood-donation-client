@@ -6,7 +6,7 @@ const Header = () => {
   const toggleNavbar = () => {
     setIsNavbarOpen(!isNavbarOpen);
   };
-  const navItems = ['Home','Dashboard','Login','Signup']
+  const navItems = [{name:'Home',route:''},{name:'Dashboard',route:'dashboard'},{name:'Login',route:'login'},{name:'Signup',route:'signup'}]
   return (
     <div className="relative flex justify-between p-4 shadow-lg ">
       <h3 className="text-xl lg:text-3xl">
@@ -41,7 +41,7 @@ const Header = () => {
         >
           {navItems.map((item, index) => (
             <NavLink
-              to={`/${item.toLowerCase()}`}
+              to={`/${item.route}`}
               key={index}
               className={({ isActive }) =>
                 `hover:text-red-600 font-semibold ${
@@ -51,7 +51,7 @@ const Header = () => {
                 } `
               }
             >
-              {item}
+              {item.name}
             </NavLink>
           ))}
         </ul>
