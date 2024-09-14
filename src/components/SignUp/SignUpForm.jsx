@@ -32,7 +32,7 @@ const SignUpForm = () => {
   });
 
   return (
-    <div className="bg-white p-20 drop-shadow-2xl max-w-3xl mx-auto">
+    <div className="bg-white p-20 drop-shadow-2xl max-w-3xl mx-auto rounded-xl">
       <form
         className="flex flex-col gap-3 text-primary"
         onSubmit={formik.handleSubmit}

@@ -6,9 +6,14 @@ const Header = () => {
   const toggleNavbar = () => {
     setIsNavbarOpen(!isNavbarOpen);
   };
-  const navItems = [{name:'Home',route:''},{name:'Dashboard',route:'dashboard'},{name:'Login',route:'login'},{name:'Signup',route:'signup'}]
+  const navItems = [
+    { name: "Home", route: "" },
+    { name: "Dashboard", route: "dashboard" },
+    { name: "Login", route: "login" },
+    { name: "Signup", route: "signup" },
+  ];
   return (
-    <div className="relative flex justify-between p-4 shadow-lg ">
+    <div className="relative flex justify-between p-4 shadow-lg bg-[#E1E1E1]">
       <h3 className="text-xl lg:text-3xl">
         <span className="bg-slate-300 rounded-lg px-2 py-1 ">SaveABeat</span>
       </h3>
