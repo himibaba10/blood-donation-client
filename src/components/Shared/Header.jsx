@@ -10,17 +10,19 @@ const Header = () => {
     { name: "Home", route: "" },
     { name: "Dashboard", route: "dashboard" },
     { name: "Login", route: "login" },
-    { name: "Signup", route: "signup" },
+    { name: "LogOut", route: "login" },
   ];
   return (
-    <div className="relative flex justify-between p-4 shadow-lg bg-[#E1E1E1]">
+    <div className="sticky top-0 bg-white w-full flex justify-between lg:px-8 py-4 z-50 border-b-[1px] border-slate-100">
       <h3 className="text-xl lg:text-3xl">
-        <span className="bg-slate-300 rounded-lg px-2 py-1 ">SaveABeat</span>
+        <span className="text-[#ce1212] rounded-lg px-2 font-semibold ">
+          D O N O R
+        </span>
       </h3>
       <div>
         {/* Hamburger Icon for mobile */}
         <button
-          className="lg:hidden absolute top-4 right-4 p-2 text-gray-600"
+          className="lg:hidden absolute flex items-center top-4 right-4 p-2 text-gray-600"
           onClick={toggleNavbar}
         >
           <svg
@@ -39,27 +41,31 @@ const Header = () => {
           </svg>
         </button>
         {/* Nav items */}
-        <ul
-          className={`${
-            isNavbarOpen ? "block" : "hidden"
-          }  lg:flex flex flex-col lg:flex-row lg:static absolute top-16 right-0 z-50 px-4 py-2 lg:px-0 lg:py-0 rounded-lg bg-slate-200 lg:bg-transparent gap-8 items-start lg:items-center list-none text-lg hover:cursor-pointer`}
-        >
-          {navItems.map((item, index) => (
+        <div className="flex gap-4 items-center">
+          <ul
+            className={`${
+              isNavbarOpen ? "block" : "hidden"
+            }  lg:flex flex flex-col lg:flex-row lg:static absolute top-[60px] right-0 z-50  py-2 lg:px-0 lg:py-0 rounded-lg bg-slate-200  lg:bg-transparent gap-2 lg:gap-8 items-start lg:items-center list-none text-lg hover:cursor-pointer`}
+          >
+            {navItems.map((item, index) => (
+              <NavLink
+                to={`/${item.route}`}
+                key={index}
+                className={`relative font-light border-b w-full lg:border-none px-4 lg:px-0 text-slate-600 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] lg:after:bg-[#ce1212] after:w-full after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100`}
+              >
+                {item.name}
+              </NavLink>
+            ))}
+          </ul>
+          <div>
             <NavLink
-              to={`/${item.route}`}
-              key={index}
-              className={({ isActive }) =>
-                `hover:text-red-600 font-semibold ${
-                  isActive
-                    ? "text-red-600 lg:underline underline-offset-8 decoration-2 decoration-red-600"
-                    : ""
-                } `
-              }
+              to="/signup"
+              className=" bg-[#ce1212] hover:bg-red-700 text-white rounded-lg mr-16  lg:mr-0 py-2 px-2 "
             >
-              {item.name}
+              Register
             </NavLink>
-          ))}
-        </ul>
+          </div>
+        </div>
       </div>
     </div>
   );

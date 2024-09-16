@@ -1,160 +1,214 @@
-import PrimaryButton from "../../UI/PrimaryButton";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUser,
+  faPhone,
+  faIdCard,
+  faBuilding,
+  faEnvelope,
+  faMapMarkerAlt,
+  faTint,
+  faGraduationCap,
+} from "@fortawesome/free-solid-svg-icons";
 
 const LoginForm = () => {
   return (
-    <div className="flex justify-center ">
-      <div className="my-7 bg-white  rounded-xl shadow-2xl w-2/3 lg:w-1/2 items-center ">
-        <div className="p-4 sm:p-7">
-          <div className="text-center">
-            <h1 className="block text-2xl font-bold text-gray-800 ">Sign in</h1>
+    <div className="flex items-center justify-center min-h-screen bg-slate-200">
+      <div className="w-full max-w-3xl p-6 bg-gradient-to-r from-red-700 to-red-900 text-white rounded-lg shadow-md">
+        <header className="text-center mb-6">
+          <h1 className="text-3xl font-bold">
+            Join the Blood Donation Community
+          </h1>
+          <p className="text-lg mt-2">Your blood can save lives</p>
+        </header>
+
+        <form className="bg-white p-6 rounded-lg shadow-lg">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            {/* Name */}
+            <div className="relative">
+              <label className="block mb-2 text-gray-700" htmlFor="name">
+                <FontAwesomeIcon icon={faUser} className="mr-2 text-red-700" />{" "}
+                <span className="text-black">Name</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                className="w-full p-2 border border-[#cccccc] rounded-md "
+                placeholder="Enter your full name"
+                required
+              />
+            </div>
+
+            {/* Mobile */}
+            <div className="relative">
+              <label className="block mb-2 text-black" htmlFor="mobile">
+                <FontAwesomeIcon icon={faPhone} className="mr-2 text-red-700" />{" "}
+                Mobile
+              </label>
+              <input
+                type="tel"
+                id="mobile"
+                name="mobile"
+                className="w-full p-2 border border-[#cccccc] rounded-md"
+                placeholder="Enter your mobile number"
+                required
+              />
+            </div>
           </div>
 
-          <div className="mt-5">
-            {/* <button
-              type="button"
-              className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none     "
-            >
-              <svg
-                className="w-4 h-auto"
-                width="46"
-                height="47"
-                viewBox="0 0 46 47"
-                fill="none"
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            {/* Student ID */}
+            <div className="relative">
+              <label className="block mb-2 text-black" htmlFor="student_id">
+                <FontAwesomeIcon
+                  icon={faIdCard}
+                  className="mr-2 text-red-700"
+                />{" "}
+                Student ID
+              </label>
+              <input
+                type="text"
+                id="student_id"
+                name="student_id"
+                className="w-full p-2 border border-[#cccccc] rounded-md"
+                placeholder="Enter your student ID"
+                required
+              />
+            </div>
+
+            {/* Department */}
+            <div className="relative">
+              <label className="block mb-2 text-black" htmlFor="department">
+                <FontAwesomeIcon
+                  icon={faBuilding}
+                  className="mr-2 text-red-700"
+                />{" "}
+                Department
+              </label>
+              <input
+                type="text"
+                id="department"
+                name="department"
+                className="w-full p-2 border border-[#cccccc] rounded-md"
+                placeholder="Enter your department"
+                required
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            {/* Email */}
+            <div className="relative">
+              <label className="block mb-2 text-black" htmlFor="email">
+                <FontAwesomeIcon
+                  icon={faEnvelope}
+                  className="mr-2 text-red-700"
+                />{" "}
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                className="w-full p-2 border border-[#cccccc] rounded-md"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+
+            {/* District */}
+            <div className="relative text-black">
+              <label className="block mb-2 text-black" htmlFor="district">
+                <FontAwesomeIcon
+                  icon={faMapMarkerAlt}
+                  className="mr-2 text-red-700"
+                />{" "}
+                District
+              </label>
+              <select
+                id="district"
+                name="district"
+                className="w-full p-2 border border-[#cccccc] rounded-md"
+                required
               >
-                <path
-                  d="M46 24.0287C46 22.09 45.8533 20.68 45.5013 19.2112H23.4694V27.9356H36.4069C36.1429 30.1094 34.7347 33.37 31.5957 35.5731L31.5663 35.8669L38.5191 41.2719L38.9885 41.3306C43.4477 37.2181 46 31.1669 46 24.0287Z"
-                  fill="#4285F4"
-                />
-                <path
-                  d="M23.4694 47C29.8061 47 35.1161 44.9144 39.0179 41.3012L31.625 35.5437C29.6301 36.9244 26.9898 37.8937 23.4987 37.8937C17.2793 37.8937 12.0281 33.7812 10.1505 28.1412L9.88649 28.1706L2.61097 33.7812L2.52296 34.0456C6.36608 41.7125 14.287 47 23.4694 47Z"
-                  fill="#34A853"
-                />
-                <path
-                  d="M10.1212 28.1413C9.62245 26.6725 9.32908 25.1156 9.32908 23.5C9.32908 21.8844 9.62245 20.3275 10.0918 18.8588V18.5356L2.75765 12.8369L2.52296 12.9544C0.909439 16.1269 0 19.7106 0 23.5C0 27.2894 0.909439 30.8731 2.49362 34.0456L10.1212 28.1413Z"
-                  fill="#FBBC05"
-                />
-                <path
-                  d="M23.4694 9.07688C27.8699 9.07688 30.8622 10.9863 32.5344 12.5725L39.1645 6.11C35.0867 2.32063 29.8061 0 23.4694 0C14.287 0 6.36607 5.2875 2.49362 12.9544L10.0918 18.8588C11.9987 13.1894 17.25 9.07688 23.4694 9.07688Z"
-                  fill="#EB4335"
-                />
-              </svg>
-              Sign in with Google
-            </button> */}
-
-            <div className="py-3 flex items-center text-xs text-gray-400 uppercase before:flex-1 before:border-t before:border-gray-200 before:me-6 after:flex-1 after:border-t after:border-gray-200 after:ms-6   "></div>
-
-            {/* <!-- Form --> */}
-            <form>
-              <div className="grid gap-y-4">
-                {/* <!-- Form Group --> */}
-                <div>
-                  <label htmlFor="email" className="block text-sm mb-2 ">
-                    Email address
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      className="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm "
-                      required
-                      aria-describedby="email-error"
-                    />
-                    <div className="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
-                      <svg
-                        className="size-5 text-red-500"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        viewBox="0 0 16 16"
-                        aria-hidden="true"
-                      >
-                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
-                      </svg>
-                    </div>
-                  </div>
-                  <p
-                    className="hidden text-xs text-red-600 mt-2"
-                    id="email-error"
-                  >
-                    Please include a valid email address so we can get back to
-                    you
-                  </p>
-                </div>
-                {/* <!-- End Form Group --> */}
-
-                {/* <!-- Form Group --> */}
-                <div>
-                  <div className="flex justify-between items-center">
-                    <label htmlFor="password" className="block text-sm mb-2 ">
-                      Password
-                    </label>
-                    <a
-                      className="inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium "
-                      href="../examples/html/recover-account.html"
-                    >
-                      Forgot password?
-                    </a>
-                  </div>
-                  <div className="relative">
-                    <input
-                      type="password"
-                      id="password"
-                      name="password"
-                      className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm border border-gray-200"
-                      required
-                      aria-describedby="password-error"
-                    />
-                    <div className="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
-                      <svg
-                        className="size-5 text-red-500"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        viewBox="0 0 16 16"
-                        aria-hidden="true"
-                      >
-                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
-                      </svg>
-                    </div>
-                  </div>
-                  <p
-                    className="hidden text-xs text-red-600 mt-2"
-                    id="password-error"
-                  >
-                    8+ characters required
-                  </p>
-                </div>
-                {/* <!-- End Form Group --> */}
-
-                {/* <!-- Checkbox --> */}
-                <div className="flex items-end">
-                  <div className="ms-3">
-                    <p className="mt-2 text-sm text-gray-600 ">
-                      Don&apos;t have an account yet?
-                      <a
-                        className="text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium "
-                        href="../examples/html/signup.html"
-                      >
-                        Sign up here
-                      </a>
-                    </p>
-                  </div>
-                </div>
-                {/* <!-- End Checkbox --> */}
-
-                {/* <button
-                    type="submit"
-                    className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-lg font-medium rounded-lg text-white bg-red-600 hover:bg-red-700 "
-                  >
-                    Sign in
-                  </button> */}
-                <PrimaryButton type="submit">Sign in</PrimaryButton>
-              </div>
-            </form>
-            {/* <!-- End Form --> */}
+                <option value="" disabled selected>
+                  Select your district
+                </option>
+                <option value="district1">District 1</option>
+                <option value="district2">District 2</option>
+                <option value="district3">District 3</option>
+              </select>
+            </div>
           </div>
-        </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            {/* Blood Group */}
+            <div className="relative text-black">
+              <label className="block mb-2 text-black" htmlFor="blood_group">
+                <FontAwesomeIcon icon={faTint} className="mr-2 text-red-700" />{" "}
+                Blood Group
+              </label>
+              <select
+                id="blood_group"
+                name="blood_group"
+                className="w-full p-2 border border-[#cccccc] rounded-md"
+                required
+              >
+                <option value="" disabled selected>
+                  Select your blood group
+                </option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+              </select>
+            </div>
+
+            {/* Studentship Status */}
+            <div className="relative text-black">
+              <label
+                className="block mb-2 text-black"
+                htmlFor="studentship_status"
+              >
+                <FontAwesomeIcon
+                  icon={faGraduationCap}
+                  className="mr-2 text-red-700"
+                />{" "}
+                Studentship Status
+              </label>
+              <select
+                id="studentship_status"
+                name="studentship_status"
+                className="w-full p-2 border border-[#cccccc] rounded-md"
+                required
+              >
+                <option value="" disabled selected>
+                  Select studentship status
+                </option>
+                <option value="Student">Student</option>
+                <option value="Non-Student">Non-Student</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Submit Button */}
+          <div className="text-center mt-6">
+            <button
+              type="submit"
+              className="px-6 py-3 bg-red-700 hover:bg-red-800 text-white rounded-md focus:ring-4 focus:ring-red-500 focus:ring-opacity-50"
+            >
+              Sign Up to Save Lives
+            </button>
+          </div>
+        </form>
+
+        <footer className="text-center mt-6">
+          <p>Thank you for being a donor!</p>
+        </footer>
       </div>
     </div>
   );

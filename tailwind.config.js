@@ -11,12 +11,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#8B0000",
+        primary: "#ce1212",
         secondary: "#004225",
         gray: "#555555",
       },
       fontFamily: {
         manrope: "'Manrope', sans-serif",
+        inter:"'Inter',sans-serif",
+        fjalla:"'Fjalla One','sans-serif'",
         mulish: "'Mulish', sans-serif",
       },
     },
