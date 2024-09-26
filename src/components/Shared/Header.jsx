@@ -1,74 +1,170 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarMenuToggle,
+  NavbarMenuItem,
+  NavbarMenu,
+  NavbarContent,
+  NavbarItem,
+  Link,
+  Button,
+} from "@nextui-org/react";
 const Header = () => {
-  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleNavbar = () => {
-    setIsNavbarOpen(!isNavbarOpen);
-  };
-  const navItems = [
-    { name: "Home", route: "" },
-    { name: "Dashboard", route: "dashboard" },
-    { name: "Login", route: "login" },
-    { name: "LogOut", route: "login" },
+  const menuItems = [
+    "Profile",
+    "Dashboard",
+    "Activity",
+    "Analytics",
+    "System",
+    "Deployments",
+    "My Settings",
+    "Team Settings",
+    "Help & Feedback",
+    "Log Out",
   ];
+
   return (
-    <div className="sticky top-0 bg-white w-full flex justify-between lg:px-8 py-4 z-50 border-b-[1px] border-slate-100">
-      <h3 className="text-xl lg:text-3xl">
-        <span className="text-[#ce1212] rounded-lg px-2 font-semibold ">
-          D O N O R
-        </span>
-      </h3>
-      <div>
-        {/* Hamburger Icon for mobile */}
-        <button
-          className="lg:hidden absolute flex items-center top-4 right-4 p-2 text-gray-600"
-          onClick={toggleNavbar}
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            />
-          </svg>
-        </button>
-        {/* Nav items */}
-        <div className="flex gap-4 items-center">
-          <ul
-            className={`${
-              isNavbarOpen ? "block" : "hidden"
-            }  lg:flex flex flex-col lg:flex-row lg:static absolute top-[60px] right-0 z-50  py-2 lg:px-0 lg:py-0 rounded-lg bg-slate-200  lg:bg-transparent gap-2 lg:gap-8 items-start lg:items-center list-none text-lg hover:cursor-pointer`}
-          >
-            {navItems.map((item, index) => (
-              <NavLink
-                to={`/${item.route}`}
-                key={index}
-                className={`relative font-light border-b w-full lg:border-none px-4 lg:px-0 text-slate-600 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] lg:after:bg-[#ce1212] after:w-full after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100`}
-              >
-                {item.name}
-              </NavLink>
-            ))}
-          </ul>
-          <div>
-            <NavLink
-              to="/signup"
-              className=" bg-[#ce1212] hover:bg-red-700 text-white rounded-lg mr-16  lg:mr-0 py-2 px-2 "
+    <Navbar isBordered isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
+      <NavbarContent className="sm:hidden" justify="start">
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        />
+      </NavbarContent>
+
+      <NavbarContent className="sm:hidden pr-3" justify="center">
+        <NavbarBrand>
+          <p className="font-bold text-inherit">DONOR</p>
+        </NavbarBrand>
+      </NavbarContent>
+
+      <NavbarContent className="hidden sm:flex gap-4" justify="end">
+        <NavbarBrand>
+          <p className="font-bold text-inherit">DONOR</p>
+        </NavbarBrand>
+        <NavbarItem>
+          <Link color="foreground" href="#">
+            Features
+          </Link>
+        </NavbarItem>
+        <NavbarItem isActive>
+          <Link href="#" aria-current="page">
+            Customers
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="#">
+            Integrations
+          </Link>
+        </NavbarItem>
+      </NavbarContent>
+
+      <NavbarContent justify="end">
+        <NavbarItem className="hidden lg:flex">
+          <Link href="#">Login</Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Button as={Link} color="warning" href="#" variant="flat">
+            Sign Up
+          </Button>
+        </NavbarItem>
+      </NavbarContent>
+
+      <NavbarMenu>
+        {menuItems.map((item, index) => (
+          <NavbarMenuItem key={`${item}-${index}`}>
+            <Link
+              className="w-full"
+              color={
+                index === 2
+                  ? "warning"
+                  : index === menuItems.length - 1
+                  ? "danger"
+                  : "foreground"
+              }
+              href="#"
+              size="lg"
             >
-              Register
-            </NavLink>
-          </div>
-        </div>
-      </div>
-    </div>
+              {item}
+            </Link>
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
+    </Navbar>
   );
-};
+}
+// const Header = () => {
+//   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+
+//   const toggleNavbar = () => {
+//     setIsNavbarOpen(!isNavbarOpen);
+//   };
+//   const navItems = [
+//     { name: "Home", route: "" },
+//     { name: "Dashboard", route: "dashboard" },
+//     { name: "Login", route: "login" },
+//     { name: "LogOut", route: "login" },
+//   ];
+//   return (
+//     <div className="sticky top-0 bg-white w-full flex justify-between lg:px-8 py-4 z-50 border-b-[1px] border-slate-100">
+//       <h3 className="text-xl lg:text-3xl">
+//         <span className="text-[#ce1212] rounded-lg px-2 font-semibold ">
+//           D O N O R
+//         </span>
+//       </h3>
+//       <div>
+//         {/* Hamburger Icon for mobile */}
+//         <button
+//           className="lg:hidden absolute flex items-center top-4 right-4 p-2 text-gray-600"
+//           onClick={toggleNavbar}
+//         >
+//           <svg
+//             className="w-6 h-6"
+//             fill="none"
+//             stroke="currentColor"
+//             viewBox="0 0 24 24"
+//             xmlns="http://www.w3.org/2000/svg"
+//           >
+//             <path
+//               strokeLinecap="round"
+//               strokeLinejoin="round"
+//               strokeWidth="2"
+//               d="M4 6h16M4 12h16m-7 6h7"
+//             />
+//           </svg>
+//         </button>
+//         {/* Nav items */}
+//         <div className="flex gap-4 items-center">
+//           <ul
+//             className={`${
+//               isNavbarOpen ? "block" : "hidden"
+//             }  lg:flex flex flex-col lg:flex-row lg:static absolute top-[60px] right-0 z-50  py-2 lg:px-0 lg:py-0 rounded-lg bg-slate-200  lg:bg-transparent gap-2 lg:gap-8 items-start lg:items-center list-none text-lg hover:cursor-pointer`}
+//           >
+//             {navItems.map((item, index) => (
+//               <NavLink
+//                 to={`/${item.route}`}
+//                 key={index}
+//                 className={`relative font-light border-b w-full lg:border-none px-4 lg:px-0 text-slate-600 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] lg:after:bg-[#ce1212] after:w-full after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100`}
+//               >
+//                 {item.name}
+//               </NavLink>
+//             ))}
+//           </ul>
+//           <div>
+//             <NavLink
+//               to="/signup"
+//               className=" bg-[#ce1212] hover:bg-red-700 text-white rounded-lg mr-16  lg:mr-0 py-2 px-2 "
+//             >
+//               Register
+//             </NavLink>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
 
 export default Header;

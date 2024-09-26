@@ -1,4 +1,5 @@
 import daisyui from "daisyui";
+const { nextui } = require("@nextui-org/react");
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -7,6 +8,7 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
     "node_modules/preline/dist/*.js",
     "node_modules/flowbite/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -17,13 +19,14 @@ export default {
       },
       fontFamily: {
         manrope: "'Manrope', sans-serif",
-        inter:"'Inter',sans-serif",
-        fjalla:"'Fjalla One','sans-serif'",
+        inter: "'Inter',sans-serif",
+        fjalla: "'Fjalla One','sans-serif'",
         mulish: "'Mulish', sans-serif",
       },
     },
   },
-  plugins: [daisyui],
+  darkMode: "class",
+  plugins: [daisyui,nextui()],
   daisyui: {
     themes: ["light"],
   },

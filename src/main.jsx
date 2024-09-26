@@ -4,9 +4,12 @@ import "./index.css";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./routes/routes.jsx";
 import "./App.css";
+import { NextUIProvider } from "@nextui-org/react";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <NextUIProvider>
+      <RouterProvider router={router} />
+    </NextUIProvider>
   </StrictMode>
 );

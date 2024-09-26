@@ -1,4 +1,4 @@
-import hero_image from "../../public/blood_donation.jpg";
+import hero_image from "../../../public/blood_donation.jpg";
 const Hero = () => {
   return (
     <div className="relative">
