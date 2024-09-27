@@ -5,7 +5,7 @@ import Signup from "../pages/Signup";
 import Dashboard from "../pages/Dashboard";
 import NotFound from "../pages/NotFound";
 import Layout from "../Layout";
-
+import About from "../pages/About";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -15,6 +15,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/about",
+        element: <About/>,
       },
       {
         path: "/signup",
