@@ -6,9 +6,9 @@ import {
   UserCircleIcon,
   MapPinIcon,
   PhoneIcon,
-  HeartIcon,
+  
 } from "@heroicons/react/24/solid";
-import { Droplet, User } from "lucide-react";
+import { Droplet } from "lucide-react";
 
 
 function SampleNextArrow(props) {
