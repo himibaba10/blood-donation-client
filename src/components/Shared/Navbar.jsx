@@ -35,7 +35,7 @@ const Navbar = () => {
               About
             </NavLink>
             <NavLink
-              to="donor_list"
+              to="donor-list"
               className="py-4 px-2 text-white hover:text-red-200 transition duration-300"
             >
               Find Donor
@@ -58,7 +58,7 @@ const Navbar = () => {
 
           <div className="md:hidden flex items-center">
             <NavLink
-              to="#"
+              to="donor-list"
               className="py-4 px-2 text-white hover:text-red-200 transition duration-300 mr-4"
             >
               Find Donor

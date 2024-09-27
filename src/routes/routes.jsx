@@ -6,6 +6,7 @@ import Dashboard from "../pages/Dashboard";
 import NotFound from "../pages/NotFound";
 import Layout from "../Layout";
 import About from "../pages/About";
+import DonorList from "../pages/DonorList";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -18,7 +19,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About/>,
+        element: <About />,
+      },
+      {
+        path: "/donor-list",
+        element: <DonorList />,
       },
       {
         path: "/signup",
