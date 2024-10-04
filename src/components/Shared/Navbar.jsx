@@ -9,18 +9,17 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-red-600 shadow-lg">
+    <nav className="bg-red-600 shadow-lg sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between">
-          <div className="flex space-x-7">
-            <div>
-              <NavLink to="#" className="flex items-center py-4 px-2">
-                <span className="font-semibold text-white text-lg">
-                  BloodDonor
-                </span>
-              </NavLink>
-            </div>
+          <div className="flex">
+            <NavLink to="./" className="flex items-center py-4 px-2">
+              <span className="font-semibold text-white text-xl lg:text-2xl">
+                D O N O R
+              </span>
+            </NavLink>
           </div>
+          {/* middle section:desktop */}
           <div className="hidden md:flex items-center space-x-1">
             <NavLink
               to="./"
@@ -41,6 +40,7 @@ const Navbar = () => {
               Find Donor
             </NavLink>
           </div>
+          {/* signup login section:desktop */}
           <div className="hidden md:flex items-center space-x-1">
             <NavLink
               to="signup"
@@ -63,45 +63,61 @@ const Navbar = () => {
             >
               Find Donor
             </NavLink>
+            
             <button
               className="outline-none mobile-menu-button"
               onClick={toggleMenu}
             >
-              {isOpen ? (
-                <XMarkIcon className="h-6 w-6 text-white" />
-              ) : (
-                <Bars3Icon className="h-6 w-6 text-white" />
-              )}
+              <div className="relative w-6 h-6">
+                <XMarkIcon
+                  className={`absolute inset-0 h-6 w-6 text-white transition-all duration-900 ease-in-out ${
+                    isOpen
+                      ? "opacity-100 transform rotate-0 scale-100"
+                      : "opacity-0 transform rotate-90 scale-50"
+                  }`}
+                />
+                <Bars3Icon
+                  className={`absolute inset-0 h-6 w-6 text-white transition-all duration-900 ease-in-out ${
+                    isOpen
+                      ? "opacity-0 transform rotate-90 scale-50"
+                      : "opacity-100 transform rotate-0 scale-100"
+                  }`}
+                />
+              </div>
             </button>
           </div>
         </div>
       </div>
       {/* Mobile menu, toggle classes based on menu state */}
-      <div className={`md:hidden ${isOpen ? "block" : "hidden"}`}>
-        <a
-          to="#"
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-700 ease-in-out ${
+          isOpen ? "max-h-60" : "max-h-0"
+        }`}
+      >
+        <NavLink
+          to="./"
           className="block py-2 px-4 text-sm hover:bg-red-700 text-white"
         >
           Home
-        </a>
-        <a
-          to="#"
+        </NavLink>
+        <NavLink
+          to="./about"
           className="block py-2 px-4 text-sm hover:bg-red-700 text-white"
         >
           About
-        </a>
-        <a
-          to="#"
+        </NavLink>
+        <NavLink
+          to="./signup"
           className="block py-2 px-4 text-sm hover:bg-red-700 text-white"
         >
           Sign Up
-        </a>
-        <a
-          to="#"
+        </NavLink>
+        <NavLink
+          to="./login"
           className="block py-2 px-4 text-sm hover:bg-red-700 text-white"
         >
           Login
-        </a>
+        </NavLink>
       </div>
     </nav>
   );

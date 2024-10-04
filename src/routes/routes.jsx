@@ -7,6 +7,7 @@ import NotFound from "../pages/NotFound";
 import Layout from "../Layout";
 import About from "../pages/About";
 import DonorList from "../pages/DonorList";
+import Admin from "../pages/Admin"
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "/admin",
+        element: <Admin/>,
       },
     ],
   },
